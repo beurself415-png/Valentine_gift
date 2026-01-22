@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine Surprise 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 18px;
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    .valentine {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #ff3366;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    img {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 12px;
+    }
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    .no {
+      background: #999;
+      color: white;
+    }
+    .hearts {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgm" src="inkem-tune.mp3" preload="auto"></audio>
+
+  <div class="card" id="content">
+    <h1>Are you interested? 💭</h1>
+    <div class="buttons">
+      <button class="yes" onclick="showValentine()">Yes</button>
+      <button class="no" onclick="showWhy()">No</button>
+    </div>
+  </div>
+
+  <script>
+    function showValentine() {
+      const music = document.getElementById('bgm');
+      music.volume = 0.4;
+      music.play();
+      document.getElementById('content').className = 'card valentine';
+      document.getElementById('content').innerHTML = `
+        <div class="hearts">🌸🎈💖🌹🎈🌸</div>
+        <h1>Happy Valentine's Day ❤️</h1>
+        <p>My love 💕</p>
+        <img src="second-photo.jpg" alt="Valentine Photo" />
+      `;
+    }
+
+    function showWhy() {
+      document.getElementById('content').innerHTML = `
+        <h2>Why are you not interested? 🥺</h2>
+        <p>Do you love me?</p>
+        <div class="buttons">
+          <button class="yes" onclick="showValentine()">Yes</button>
+          <button class="no" onclick="showSad()">No</button>
+        </div>
+      `;
+    }
+
+    function showSad() {
+      document.getElementById('content').innerHTML = `
+        <h2>It's okay 🙂</h2>
+        <p>Feelings take time 💛</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
